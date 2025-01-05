@@ -30,7 +30,7 @@ export const EXPERIENCE_DATA = [
     {
         img: dayImg,
         title: "Administrativo",
-        date: "Abril 2024 - Julio 2024",
+        date: "Abr 2024 - Jul 2024",
         text: "Desempeñe el rol de administrador ademas de actualizar la pagina web de la empresa, editar videos y crear campaña de marketing en LinkedIn"
     },
     {
@@ -41,7 +41,7 @@ export const EXPERIENCE_DATA = [
     },
     {
         img: sylcomImg,
-        date: "Abril 2021 - Junio 2021",
+        date: "Abr 2021 - Jun 2021",
         title: "Instalador de redes",
         text: "Desempeñe el trabajo de instalador de redes de fibra optica, redes inalambricas y cableado de red en la empresa Sylcom"
     }

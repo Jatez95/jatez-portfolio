@@ -13,6 +13,7 @@ export default function Experience() {
                         key={experience.title}
                         img={experience.img}
                         title={experience.title}
+                        date={experience.date}
                         text={experience.text}
                     />
                 ))}
