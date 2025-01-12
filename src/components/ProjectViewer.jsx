@@ -1,6 +1,6 @@
-export default function ProjectsViewer({ img, title, text }) {
+export default function ProjectsViewer({ img, title, text, id }) {
     return (
-        <div className="w-full h-72 sm:h-80 md:h-96 lg:h-[420px] rounded-lg p-2 sm:p-3 md:p-4 relative">
+        <div key={id} className="w-full h-72 sm:h-80 md:h-96 lg:h-[420px] rounded-lg p-2 sm:p-3 md:p-4 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 blur-sm rounded-lg"></div>
 
             <div className="relative z-10 h-full w-full flex flex-col items-center p-2">

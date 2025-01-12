@@ -1,6 +1,6 @@
-export default function ExperienceCards({ key, img, title, date, text }) {
+export default function ExperienceCards({ id, img, title, date, text }) {
     return (
-        <div key={key} className='flex flex-col bg-neutral-950 h-96 w-80 text-sm opacity-80 border-2 border-white rounded-lg'>
+        <div key={id} className='flex flex-col bg-neutral-950 h-96 w-80 text-sm opacity-80 border-2 border-white rounded-lg'>
             <div className="h-full w-full flex flex-col items-center p-2">
                 <img
                     src={img}

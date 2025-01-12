@@ -19,6 +19,7 @@ export default function Projects() {
     if (selectedProyect) {
         project_content = (
             <ProjectsViewer
+                id={PROJECTS_DATA[selectedProyect].title}
                 img={PROJECTS_DATA[selectedProyect].img}
                 title={PROJECTS_DATA[selectedProyect].title}
                 text={PROJECTS_DATA[selectedProyect].text}
@@ -35,10 +36,10 @@ export default function Projects() {
                 <div className="flex flex-col w-full h-full text-neutral-200">
                     {PROJECTS_DATA.map((project, index) => (
                         <ul>
-                            <li key={index}>
+                            <li key={project.title}>
                                 <hr className="border-0 h-1 bg-gradient-to-r from-transparent from-1% via-white via-11% to-transparent to-95%" />
                                 <div
-                                    key={index}
+                                    key={project.text}
                                     className={`mt-1 mb-1 ${selectedProyect === index ? 'bg-gradient-to-r from-neutral-600 via-transparent to-transparent' : ''}`}
                                 >
                                     <button onClick={() => handleSelectProyect(index)} className="ml-2 w-full text-left">

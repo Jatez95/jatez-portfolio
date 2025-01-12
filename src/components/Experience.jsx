@@ -8,9 +8,9 @@ export default function Experience() {
                 <h2 className="text-3xl md:text-4xl text-neutral-50 uppercase text-center font-semibold opacity-80">EXPERIENCIA</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 w-full px-10 justify-items-center mx-auto">
-                {EXPERIENCE_DATA.map((experience, index) => (
+                {EXPERIENCE_DATA.map((experience) => (
                     <ExperienceCards
-                        key={experience.title}
+                        id={experience.title}
                         img={experience.img}
                         title={experience.title}
                         date={experience.date}
