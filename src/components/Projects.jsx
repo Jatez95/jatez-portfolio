@@ -23,6 +23,7 @@ export default function Projects() {
                 img={PROJECTS_DATA[selectedProyect].img}
                 title={PROJECTS_DATA[selectedProyect].title}
                 text={PROJECTS_DATA[selectedProyect].text}
+                link={PROJECTS_DATA[selectedProyect].projectLink}
             />
         )
     }

@@ -53,20 +53,24 @@ export const PROJECTS_DATA = [
         img: dptrImg,
         title: "Deportes TR",
         text: "Proyecto integrado del grado DAM para consultar información deportiva en tiempo real, incluyendo resultados, noticias, estadísticas y más.",
+        projectLink: "https://github.com/Jatez95/DeportesTR"
     },
     {
         img: ratingImg,   
         title: "Rating game Page",
-        text: "Proyecto personal de una página para registrar los videojuegos que he jugado, junto con sus puntuaciones y mi opinión sobre ellos. [En Proceso]"
+        text: "Proyecto personal de una página para registrar los videojuegos que he jugado, junto con sus puntuaciones y mi opinión sobre ellos. [En Proceso]",
+        projectLink: ""
     },
     {
         img: discordImg,
         title: "Bot de Discord",
-        text: "Proyecto de bot que, además de ser mi primer proyecto en Python, es capaz de enviar mensajes y unirse a chats de voz"
+        text: "Proyecto de bot que, además de ser mi primer proyecto en Python, es capaz de enviar mensajes y unirse a chats de voz",
+        projectLink : ""
     },
     {
         img: moneyIcon,
         title: "Control de gastos",
-        text: "Web app que conecta con las APIs de google para ver en web una tabla de google sheets en la que se pueden añadir gastos e ingresos. Tambien se puede descargar"
+        text: "Web app que conecta con las APIs de google para ver en web una tabla de google sheets en la que se pueden añadir gastos e ingresos. Tambien se puede descargar",
+        projectLink : "https://github.com/Jatez95/expense-tracker"
     }
 ]

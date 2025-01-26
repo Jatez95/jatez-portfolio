@@ -1,15 +1,15 @@
-export default function ProjectsViewer({ img, title, text, id }) {
+export default function ProjectsViewer({ img, title, text, link, id }) {
     return (
         <div key={id} className="w-full h-72 sm:h-80 md:h-96 lg:h-[420px] rounded-lg p-2 sm:p-3 md:p-4 relative">
             <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-blue-600 opacity-20 blur-sm rounded-lg"></div>
 
             <div className="relative z-10 h-full w-full flex flex-col items-center p-2">
                 <div className="w-full h-24 sm:h-32 md:h-40 lg:h-48 mb-2 sm:mb-3 md:mb-4">
-                    <img
+                    <a href={link}><img
                         src={img}
                         alt={title}
                         className="w-full h-full object-contain rounded-lg"
-                    />
+                    /></a>
                 </div>
 
                 <div className="w-full flex flex-col overflow-hidden">
