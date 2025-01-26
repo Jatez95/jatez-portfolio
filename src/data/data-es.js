@@ -5,6 +5,7 @@ import sylcomImg from '../assets/experience/sylcom.png'
 import dptrImg from '../assets/projects/dptr-logo.png'
 import ratingImg from '../assets/projects/rating-page.png'
 import discordImg from '../assets/projects/discord-bot.png'
+import moneyIcon from '../assets/projects/money_icon.ico'
 
 
 export const ABOUT_ME_DATA = [
@@ -62,5 +63,10 @@ export const PROJECTS_DATA = [
         img: discordImg,
         title: "Bot de Discord",
         text: "Proyecto de bot que, además de ser mi primer proyecto en Python, es capaz de enviar mensajes y unirse a chats de voz"
+    },
+    {
+        img: moneyIcon,
+        title: "Control de gastos",
+        text: "Web app que conecta con las APIs de google para ver en web una tabla de google sheets en la que se pueden añadir gastos e ingresos. Tambien se puede descargar"
     }
 ]
