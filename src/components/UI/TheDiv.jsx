@@ -38,7 +38,7 @@ export default function AnimatedGrid({ children }) {
     const cells = Array(totalCells).fill(null);
 
     return (
-        <div className="w-full h-full bg-neutral-950 grid grid-cols-6 gap-1 p-2 rounded-md static">
+        <div className="w-full h-full bg-neutral-950 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-1 p-2 rounded-md static">
             {cells.map((_, index) => {
                 // Calculate opacity based on whether this square is active
                 const isActive = activeSquares.includes(index);
@@ -47,11 +47,11 @@ export default function AnimatedGrid({ children }) {
                 return (
                     <div
                         key={index}
-                        className="w-full h-full bg-slate-600 rounded-sm transition-opacity duration-300 justify-items-center"
+                        className="bg-slate-600 rounded-sm transition-opacity duration-300 justify-items-center"
                         style={{ opacity }}
                     >
                         {ONLY_IMAGES[index] && (
-                            <img className="w-3/4 h-full p-8" src={`${ONLY_IMAGES[index]}`} alt="" />
+                            <img className="w-3/4 h-full p-2 md:p-8 lg:p-8 " src={`${ONLY_IMAGES[index]}`} alt="" />
                         )}
                     </div>
 

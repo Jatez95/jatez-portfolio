@@ -1,30 +1,6 @@
 import AnimatedGrid from "./UI/TheDiv";
 
 export default function Technologies() {
-    // Helper function to create a grid with placeholder spots
-    const renderTechGrid = (techArray) => {
-        // Create an array with 9 spots (3x3 grid)
-        const gridSpots = Array(9).fill(null);
-
-        // Fill in the available tech images
-        techArray.forEach((tech, index) => {
-            if (index < 9) {
-                gridSpots[index] = tech;
-            }
-        });
-
-        return gridSpots.map((tech, index) => (
-            <div key={index} className="flex items-center justify-center w-full h-full">
-                {tech && (
-                    <img
-                        src={tech}
-                        alt={`Technology ${index + 1}`}
-                        className="w-12 h-12 object-contain"
-                    />
-                )}
-            </div>
-        ));
-    };
 
     return (
         <section id='techs' className="flex flex-col justify-center items-center w-full h-2/4 mt-24">
