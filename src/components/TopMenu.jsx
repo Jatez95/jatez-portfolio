@@ -1,4 +1,4 @@
-import Button from "./Button";
+import Button from "./UI/Button";
 import cv from "../assets/cv/cv-javier.pdf";
 
 export default function TopMenu() {
@@ -10,7 +10,7 @@ export default function TopMenu() {
         <>
             <nav className='fixed top-0 h-16 w-full flex flex-row bg-black/90 border-b-white border-b-2 backdrop-blur-lg backdrop-filter z-50'>
                 <div className="flex h-full w-1/2 lg:w-2/4 justify-start items-center">
-                    <p className="text-neutral-50 m-5 text-xl">Jatez</p>
+                    <p className="text-neutral-50 m-5 text-xl">JMateos</p>
                 </div>
                 <div className="flex h-full w-1/2 lg:w-2/4 justify-end items-center mr-4 space-x-1 lg:space-x-3">
                     <a href="#about" className="hidden lg:inline">

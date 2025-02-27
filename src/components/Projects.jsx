@@ -1,59 +1,88 @@
 import { useState } from "react";
 import { PROJECTS_DATA } from "../data/data-es";
-import ProjectsViewer from "./ProjectViewer";
+import { ProjectCard } from "./UI/Cards";
+import { ArrowRight, ArrowLeft } from 'lucide-react';
 
-export default function Projects() {
+export default function ProjectsV2() {
+    const chunkSize = 4;
+    const [selectedChunk, setSelectedChunk] = useState(0);
+    const [isAnimating, setIsAnimating] = useState(false);
+    const [direction, setDirection] = useState("right");
 
-    const [selectedProyect, setSelectedProyect] = useState(0);
-
-    function handleSelectProyect(title) {
-        setSelectedProyect(title);
+    // Create pagination chunks
+    const projectPagination = [];
+    for (let i = 0; i < PROJECTS_DATA.length; i += chunkSize) {
+        projectPagination.push(PROJECTS_DATA.slice(i, i + chunkSize));
     }
 
-    let project_content = <ProjectsViewer
-        img={PROJECTS_DATA[selectedProyect].img}
-        title={PROJECTS_DATA[selectedProyect].title}
-        text={PROJECTS_DATA[selectedProyect].text}
-    />
+    function handleNext() {
+        if (isAnimating) return;
 
-    if (selectedProyect) {
-        project_content = (
-            <ProjectsViewer
-                id={PROJECTS_DATA[selectedProyect].title}
-                img={PROJECTS_DATA[selectedProyect].img}
-                title={PROJECTS_DATA[selectedProyect].title}
-                text={PROJECTS_DATA[selectedProyect].text}
-                link={PROJECTS_DATA[selectedProyect].projectLink}
-            />
-        )
+        setDirection("right");
+        setIsAnimating(true);
+
+        setTimeout(() => {
+            if (selectedChunk >= projectPagination.length - 1) {
+                setSelectedChunk(0);
+            } else {
+                setSelectedChunk(selectedChunk + 1);
+            }
+            setIsAnimating(false);
+        }, 300);
     }
+
+    function handlePrevious() {
+        if (isAnimating) return;
+
+        setDirection("left");
+        setIsAnimating(true);
+
+        setTimeout(() => {
+            if (selectedChunk === 0) {
+                setSelectedChunk(projectPagination.length - 1);
+            } else {
+                setSelectedChunk(selectedChunk - 1);
+            }
+            setIsAnimating(false);
+        }, 300);
+    }
+
+    // Animation classes for the arrows
+    const leftArrowClass = `m-2 cursor-pointer text-neutral-700 transition-all duration-200 hover:text-neutral-500 transform ${isAnimating && direction === "left" ? "scale-125" : ""}`;
+    const rightArrowClass = `m-2 cursor-pointer text-neutral-700 transition-all duration-200 hover:text-neutral-500 transform ${isAnimating && direction === "right" ? "scale-125" : ""}`;
 
     return (
         <section id="projects" className="flex flex-col justify-center items-center sm:w-full w-full h-2/4 mt-24 mb-10">
-            <div className="mt-8 sm:mt-16 bg-gradient-to-r from-transparent via-amber-400 to-transparent w-full max-w-5xl md:w-2/3 mb-6 sm:mb-10 text-center uppercase opacity-80">
-                <h2 className="text-3xl md:text-4xl text-neutral-50 uppercase text-center font-semibold opacity-80">PROYECTOS</h2>
+            <h2 className="text-2xl mt-10 mb-10 sm:text-3xl md:text-4xl uppercase text-center font-semibold bg-gradient-to-r from-yellow-400 to-yellow-800 text-transparent bg-clip-text">PROYECTOS</h2>
+            <div className="flex flex-row w-11/12 bg-neutral-950 rounded-t-lg">
+                <ArrowLeft
+                    size={25}
+                    className={leftArrowClass}
+                    onClick={handlePrevious}
+                />
+                <ArrowRight
+                    size={25}
+                    className={rightArrowClass}
+                    onClick={handleNext}
+                />
+                <p className="m-2 text-xl text-neutral-400 ml-auto">
+                    {selectedChunk + 1}/{projectPagination.length}
+                </p>
             </div>
-            <div className="grid lg:grid-cols-2 md-grid-cols-1 gap-4 w-full px-10 justify-items-center mx-auto">
-                <div className="flex flex-col w-full h-full text-neutral-200">
-                    {PROJECTS_DATA.map((project, index) => (
-                        <ul>
-                            <li key={project.title}>
-                                <hr className="border-0 h-1 bg-gradient-to-r from-transparent from-1% via-white via-11% to-transparent to-95%" />
-                                <div
-                                    key={project.text}
-                                    className={`mt-1 mb-1 ${selectedProyect === index ? 'bg-gradient-to-r from-neutral-600 via-transparent to-transparent' : ''}`}
-                                >
-                                    <button onClick={() => handleSelectProyect(index)} className="ml-2 w-full text-left">
-                                        {project.title}
-                                    </button>
-                                </div>
-                            </li>
-                        </ul>
-                    ))}
-                </div>
-                <div className="flex flex-col w-full h-full">
-                    {project_content}
-                </div>
+            <div className="grid lg:grid-cols-4 md:grid-cols-1 gap-10 w-11/12 px-5 py-4 justify-items-center mx-auto bg-neutral-900 rounded-b-lg">
+                {projectPagination[selectedChunk].map((project) => (
+                    <div className={`transition-opacity duration-300 ${isAnimating ? "opacity-0" : "opacity-100"}`}>
+                        <ProjectCard
+                            key={project.title}
+                            projectImage={project.img}
+                            title={project.title}
+                            description={project.text}
+                            techs={project.techs}
+                            link={project.projectLink}
+                        />
+                    </div>
+
+                ))}
             </div>
         </section>
     );
